@@ -128,7 +128,6 @@
             this.GenderCell,
             this.ShinyCell,
             this.SeedCell});
-            this.raidContent.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.raidContent.Location = new System.Drawing.Point(0, 231);
             this.raidContent.Margin = new System.Windows.Forms.Padding(2);
             this.raidContent.Name = "raidContent";

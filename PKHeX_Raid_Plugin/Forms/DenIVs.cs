@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Drawing;
+
 
 using PKHeX.Core;
+using System.Windows.Forms;
 
 namespace PKHeX_Raid_Plugin
 {
-    public partial class DenIVs : Form
+    public partial class DenIVs:Form
     {
         private readonly RaidManager Raids;
         private static readonly int[] min_stars = { 0, 0, 0, 0, 1, 1, 2, 2, 2, 0 };
@@ -194,7 +196,13 @@ namespace PKHeX_Raid_Plugin
         private void SpeciesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             var pkm = (RaidTemplate)((ComboboxItem)speciesList.SelectedItem).Value;
-            var abilities = PersonalTable.SWSH.GetFormEntry(pkm.Species, pkm.AltForm).Abilities;
+            var abilities = new List<int>();
+            for (int i = 0; i < 3; i++)
+            {
+                var info = PersonalTable.SWSH.GetFormEntry(pkm.Species, pkm.AltForm);
+                abilities.Add(info.GetAbilityAtIndex(i));
+
+            }
             PopulateAbilityList(abilities, pkm.Ability);
             PopulateGenderList(PersonalTable.SWSH[pkm.Species].Gender);
 

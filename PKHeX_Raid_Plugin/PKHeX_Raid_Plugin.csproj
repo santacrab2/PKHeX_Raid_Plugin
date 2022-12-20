@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net48</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows</TargetFrameworks>
     <ApplicationIcon />
-    <OutputType>Library</OutputType>
+	  <UseWindowsForms>true</UseWindowsForms>
+    
     <StartupObject></StartupObject>
-    <LangVersion>8</LangVersion>
+    <LangVersion>10</LangVersion>
     <Nullable>enable</Nullable>
     <Platforms>x64;x86</Platforms>
   </PropertyGroup>
@@ -20,7 +21,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Z3" Version="4.11.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="PKHeX.Core" Version="22.8.31" />
+    <PackageReference Include="PKHeX.Core" Version="22.12.18" />
   </ItemGroup>
 
   <Choose>
@@ -40,7 +41,6 @@
     <Reference Include="PKHeX.Drawing.PokeSprite">
       <HintPath>deps\PKHeX.Drawing.PokeSprite.dll</HintPath>
     </Reference>
-    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
   <ItemGroup>
